@@ -1,0 +1,58 @@
+<!-- Validation failure messages -->
+<% if @membership.errors.any? %>
+  <% @membership.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Member to Group: <%= @group.group_name %> </h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_membership" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for group_id -->
+      <div class="form-group">
+
+        <input type="hidden" id="group_id" name="group_id" placeholder="Group" class="form-control" value="<%= @group.id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+
+          <%= select_tag(:user_id, options_from_collection_for_select(User.all,:id,:name), :class => "form-control") %>
+
+
+
+      </div>
+
+      <button class="btn btn-success">
+        Create Membership
+      </button>
+      or
+      <a href="/groups">Cancel</a>
+    </form>
+
+<br/>
+
+<h4>Current Members</h4>
+
+      <% Membership.where(:group_id => @group.id).each do |member| %>
+      <li><%= User.find(member.user_id).name %> (<%= User.find(member.user_id).email %>)</li>
+
+       <% end %>
+
+
+  </div>
+</div>

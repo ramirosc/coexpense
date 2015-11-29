@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Expense #<%= @expense.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Paid form</dt>
+      <dd><%= @expense.paid_form %></dd>
+
+      <dt>Expense type</dt>
+      <dd><%= @expense.expense_type %></dd>
+
+      <dt>Held on</dt>
+      <dd><%= @expense.held_on %></dd>
+
+      <dt>Category</dt>
+      <dd><%= @expense.category %></dd>
+
+      <dt>Value</dt>
+      <dd><%= @expense.value %></dd>
+
+      <dt>Expense name</dt>
+      <dd><%= @expense.expense_name %></dd>
+
+      <dt>Group</dt>
+      <dd><%= @expense.group_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @expense.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/expenses" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/expenses/<%= @expense.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_expense/<%= @expense.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

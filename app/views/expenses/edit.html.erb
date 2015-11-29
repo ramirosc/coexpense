@@ -1,0 +1,98 @@
+<!-- Validation failure messages -->
+<% if @expense.errors.any? %>
+  <% @expense.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Expense: <%= @expense.expense_name %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_expense/<%= @expense.id %>" method="post">
+
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+  <!-- Label and input for value -->
+      <div class="form-group">
+        <label for="value" class="control-label">
+          Value
+        </label>
+
+        <input type="currency" id="value" name="value" placeholder="Value" class="form-control" value="<%= @expense.value %>">
+      </div>
+
+
+      <!-- Label and input for expense_name -->
+      <div class="form-group">
+        <label for="expense_name" class="control-label">
+          Expense name
+        </label>
+
+        <input type="text" id="expense_name" name="expense_name" placeholder="Expense name" class="form-control" value="<%= @expense.expense_name %>">
+      </div>
+
+      <!-- Label and input for expense_type -->
+      <div class="form-group">
+        <label for="expense_type" class="control-label">
+          Individual or Groupal Expense?
+        </label>
+
+          <%= select_tag(:expense_type, options_for_select(["Individual", "Groupal"], @expense.expense_type), :class => "form-control")%>
+
+
+
+      </div>
+
+      <!-- Label and input for held_on -->
+      <div class="form-group">
+        <label for="held_on" class="control-label">
+          Held on
+        </label>
+
+        <input type="date" id="held_on" name="held_on" placeholder="Held on" class="form-control" value="<%= @expense.held_on %>">
+      </div>
+
+      <!-- Label and input for category -->
+      <div class="form-group">
+        <label for="category" class="control-label">
+          Category
+        </label>
+
+           <%= select_tag(:category, options_for_select(["Eating","Grocery","Nightlife","Daylife","Home", "Transportation", "Others"], @expense.category), :class => "form-control") %>
+
+      </div>
+
+
+
+
+      <!-- Label and input for group_id -->
+      <div class="form-group">
+        <label for="group_id" class="control-label">
+          Group
+        </label>
+
+        <%= select_tag(:group_id, options_from_collection_for_select(current_user.groups,:id,:group_name, @expense.group_id), :class => "form-control") %>
+
+      </div>
+
+      <!-- Label and input for user_id -->
+
+      <div class="form-group">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @expense.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Expense
+      </button>
+      or
+      <a href="/expenses/">Cancel</a>
+    </form>
+  </div>
+</div>
