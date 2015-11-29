@@ -30789,3 +30789,1064 @@ Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb
 
 
 Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-28 21:16:33 -0600
+
+
+Started GET "/" for ::1 at 2015-11-29 11:17:12 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GroupsController#index as HTML
+Completed 401 Unauthorized in 35ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-11-29 11:17:13 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (64.5ms)
+Completed 200 OK in 611ms (Views: 578.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-11-29 11:17:24 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pUWFrYtHNMnuzz/0ltJZnMxy0nJWgjEzHcYjaEV4OUVc8rVGciwiIX3ubsOiypO/b4w9N3QoeRHo1BqTyV0k5A==", "user"=>{"email"=>"ramiro@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[35mUser Load (30.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "ramiro@example.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["remember_created_at", "2015-11-29 17:17:24.777043"], ["updated_at", "2015-11-29 17:17:24.777930"], ["id", 3]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-11-28 21:10:28.387905"], ["current_sign_in_at", "2015-11-29 17:17:24.804847"], ["sign_in_count", 10], ["updated_at", "2015-11-29 17:17:24.805839"], ["id", 3]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 298ms (ActiveRecord: 36.1ms)
+
+
+Started GET "/" for ::1 at 2015-11-29 11:17:24 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (16.7ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (80.6ms)
+Completed 200 OK in 132ms (Views: 92.3ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 11:18:10 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mMembership Load (0.2ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 53ms (Views: 49.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/memberships/new/25" for ::1 at 2015-11-29 11:18:13 -0600
+Processing by MembershipsController#new as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mMembership Load (0.1ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered memberships/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 64ms (Views: 59.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/create_membership" for ::1 at 2015-11-29 11:18:17 -0600
+Processing by MembershipsController#create as HTML
+  Parameters: {"authenticity_token"=>"RkAVUtyO85Bg8Jl7pTCWKag+pLTDTOxhn0elqWkhp/JDPjg4jOBxZeIyM4yBtgum+Oj7uRxAUaY1NTIAQrXb7w==", "group_id"=>"25", "user_id"=>"4"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMembership Exists (0.2ms)[0m  SELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 4 AND "memberships"."group_id" = 25) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered memberships/new.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (undefined method `group_name' for nil:NilClass):
+     9: <% end %>
+    10: 
+    11: <div class="page-header">
+    12:   <h3>Add Member to Group: <%= @group.group_name %> </h3>
+    13: </div>
+    14: 
+    15: <div class="row">
+  app/views/memberships/new.html.erb:12:in `_app_views_memberships_new_html_erb___245502883508256353_70096618112800'
+  app/controllers/memberships_controller.rb:24:in `create'
+
+
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.8ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.7ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (99.1ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (225.8ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 11:23:43 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 25]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-11-29 11:23:45 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 34ms (Views: 31.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 11:23:47 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mMembership Load (0.1ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 32ms (Views: 28.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/groups/23" for ::1 at 2015-11-29 11:23:48 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 23]]
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 23]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/groups/4" for ::1 at 2015-11-29 11:23:50 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 4]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered groups/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 35ms (Views: 32.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 11:23:53 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups/23" for ::1 at 2015-11-29 11:23:55 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 23]]
+  [1m[36mMembership Load (0.1ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 23]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/memberships/new/23" for ::1 at 2015-11-29 11:24:00 -0600
+Processing by MembershipsController#new as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 23]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered memberships/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/create_membership" for ::1 at 2015-11-29 11:24:03 -0600
+Processing by MembershipsController#create as HTML
+  Parameters: {"authenticity_token"=>"FSQpnb+EtGBYaDvOOld/DS2Nlwp4hCX9p66l5w4zkI4QWgT37+o2ldqqkTke0eKCfVvIB6eImDoN3DJOJafskw==", "group_id"=>"23", "user_id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMembership Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 6 AND "memberships"."group_id" = 23) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "memberships" ("group_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["group_id", 23], ["user_id", 6], ["created_at", "2015-11-29 17:24:03.041012"], ["updated_at", "2015-11-29 17:24:03.041012"]]
+  [1m[36m (6.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/groups
+Completed 302 Found in 11ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 11:24:03 -0600
+Processing by GroupsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.3ms)[0m  [1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 48ms (Views: 45.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/groups/23" for ::1 at 2015-11-29 11:24:07 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 23]]
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 23]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/delete_membership/23/4" for ::1 at 2015-11-29 11:24:10 -0600
+Processing by MembershipsController#destroy as HTML
+  Parameters: {"group"=>"23", "user"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mMembership Load (0.2ms)[0m  [1mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ? AND "memberships"."user_id" = ? LIMIT 1[0m  [["group_id", 23], ["user_id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "memberships" WHERE "memberships"."id" = ?[0m  [["id", 17]]
+  [1m[35m (6.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/groups
+Completed 302 Found in 11ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 11:24:10 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-11-29 16:32:03 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (7.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.8ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 205ms (Views: 135.7ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 16:32:12 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mMembership Load (0.2ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/memberships/new/25" for ::1 at 2015-11-29 16:32:15 -0600
+Processing by MembershipsController#new as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mMembership Load (0.1ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered memberships/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 45ms (Views: 41.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/create_membership" for ::1 at 2015-11-29 16:32:18 -0600
+Processing by MembershipsController#create as HTML
+  Parameters: {"authenticity_token"=>"W2KPTH20UXhFb/WknjLzaroug3GXTDfQ/WgVWg+PA+5eHKImLdrTjcetX1O6tG7l6vjcfEhAihdXGoLzJBt/8w==", "group_id"=>"25", "user_id"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMembership Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 4 AND "memberships"."group_id" = 25) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 25]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered memberships/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 46ms (Views: 32.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:33:22 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 58ms (Views: 40.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/memberships/new/23" for ::1 at 2015-11-29 16:33:26 -0600
+Processing by MembershipsController#new as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 23]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered memberships/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 35ms (Views: 27.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:33:28 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 16:33:30 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mMembership Load (0.1ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 16:33:36 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 25]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/delete_membership/25/6" for ::1 at 2015-11-29 16:33:37 -0600
+Processing by MembershipsController#destroy as HTML
+  Parameters: {"group"=>"25", "user"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mMembership Load (0.2ms)[0m  SELECT  "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ? AND "memberships"."user_id" = ? LIMIT 1  [["group_id", 25], ["user_id", 6]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "memberships" WHERE "memberships"."id" = ?  [["id", 15]]
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/groups
+Completed 302 Found in 10ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:33:37 -0600
+Processing by GroupsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 16:33:39 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 25]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/delete_membership/25/4" for ::1 at 2015-11-29 16:33:40 -0600
+Processing by MembershipsController#destroy as HTML
+  Parameters: {"group"=>"25", "user"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mMembership Load (0.1ms)[0m  SELECT  "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ? AND "memberships"."user_id" = ? LIMIT 1  [["group_id", 25], ["user_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "memberships" WHERE "memberships"."id" = ?  [["id", 14]]
+  [1m[36m (5.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/groups
+Completed 302 Found in 9ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:33:40 -0600
+Processing by GroupsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 16:33:41 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mMembership Load (0.2ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 25]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/memberships/new/25" for ::1 at 2015-11-29 16:33:43 -0600
+Processing by MembershipsController#new as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 25]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered memberships/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/create_membership" for ::1 at 2015-11-29 16:33:46 -0600
+Processing by MembershipsController#create as HTML
+  Parameters: {"authenticity_token"=>"HDUhVEDjLYZuo4v7Wj4gTYAvjAv8z9Pi1FcCAObXI7EZSww+EI2vc+xhIQx+uL3C0PnTBiPDbiV+JZWpzUNfrA==", "group_id"=>"25", "user_id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMembership Exists (0.2ms)[0m  SELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 6 AND "memberships"."group_id" = 25) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "memberships" ("group_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["group_id", 25], ["user_id", 6], ["created_at", "2015-11-29 22:33:46.406076"], ["updated_at", "2015-11-29 22:33:46.406076"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/groups
+Completed 302 Found in 16ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:33:46 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 16:33:48 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mMembership Load (0.1ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:33:50 -0600
+Processing by GroupsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/delete_group/23" for ::1 at 2015-11-29 16:34:24 -0600
+Processing by GroupsController#destroy as HTML
+  Parameters: {"id"=>"23"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 23]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "groups" WHERE "groups"."id" = ?[0m  [["id", 23]]
+  [1m[35m (6.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/groups
+Completed 302 Found in 10ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:34:24 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered groups/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/expenses" for ::1 at 2015-11-29 16:34:26 -0600
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mExpense Load (47.4ms)[0m  SELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?  [["user_id", 3]]
+  [1m[36mGroup Load (0.2ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered expenses/index.html.erb within layouts/application (127.1ms)
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 48.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=3):
+  app/views/expenses/index.html.erb:29:in `block in _app_views_expenses_index_html_erb__4401951079183286884_70096621952200'
+  app/views/expenses/index.html.erb:21:in `_app_views_expenses_index_html_erb__4401951079183286884_70096621952200'
+
+
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.0ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (74.0ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (87.9ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (207.8ms)
+
+
+Started GET "/expenses" for ::1 at 2015-11-29 16:34:28 -0600
+Processing by ExpensesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExpense Load (0.1ms)[0m  [1mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered expenses/index.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=3):
+  app/views/expenses/index.html.erb:29:in `block in _app_views_expenses_index_html_erb__4401951079183286884_70096604277600'
+  app/views/expenses/index.html.erb:21:in `_app_views_expenses_index_html_erb__4401951079183286884_70096604277600'
+
+
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.5ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (53.0ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (116.3ms)
+
+
+Started GET "/" for ::1 at 2015-11-29 16:34:59 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered groups/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-11-29 16:35:00 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered groups/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-11-29 16:35:00 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered groups/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/expenses" for ::1 at 2015-11-29 16:35:02 -0600
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mExpense Load (0.1ms)[0m  SELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?  [["user_id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered expenses/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.6ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=3):
+  app/views/expenses/index.html.erb:29:in `block in _app_views_expenses_index_html_erb__4401951079183286884_70096621952200'
+  app/views/expenses/index.html.erb:21:in `_app_views_expenses_index_html_erb__4401951079183286884_70096621952200'
+
+
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.1ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (50.2ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (109.9ms)
+
+
+Started GET "/expenses" for ::1 at 2015-11-29 16:35:02 -0600
+Processing by ExpensesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExpense Load (0.2ms)[0m  [1mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered expenses/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.6ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=3):
+  app/views/expenses/index.html.erb:29:in `block in _app_views_expenses_index_html_erb__4401951079183286884_70096604277600'
+  app/views/expenses/index.html.erb:21:in `_app_views_expenses_index_html_erb__4401951079183286884_70096604277600'
+
+
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.6ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (49.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (116.3ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:35:06 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered groups/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 16:35:07 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mMembership Load (0.1ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 33ms (Views: 30.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/groups/4" for ::1 at 2015-11-29 16:35:09 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mMembership Load (0.1ms)[0m  SELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?  [["group_id", 4]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered groups/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:35:11 -0600
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered groups/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 33ms (Views: 30.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups/25" for ::1 at 2015-11-29 16:35:12 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mMembership Load (0.2ms)[0m  [1mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = ?[0m  [["group_id", 25]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered groups/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:35:13 -0600
+Processing by GroupsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered groups/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/expenses" for ::1 at 2015-11-29 16:35:17 -0600
+Processing by ExpensesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExpense Load (0.1ms)[0m  [1mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered expenses/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=3):
+  app/views/expenses/index.html.erb:29:in `block in _app_views_expenses_index_html_erb__4401951079183286884_70096621952200'
+  app/views/expenses/index.html.erb:21:in `_app_views_expenses_index_html_erb__4401951079183286884_70096621952200'
+
+
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (52.2ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (111.8ms)
+
+
+Started GET "/expenses" for ::1 at 2015-11-29 16:35:18 -0600
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mExpense Load (0.1ms)[0m  SELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?  [["user_id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered expenses/index.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=3):
+  app/views/expenses/index.html.erb:29:in `block in _app_views_expenses_index_html_erb__4401951079183286884_70096604277600'
+  app/views/expenses/index.html.erb:21:in `_app_views_expenses_index_html_erb__4401951079183286884_70096604277600'
+
+
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.1ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (52.2ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ramirosc/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (118.6ms)
+
+
+Started GET "/groups" for ::1 at 2015-11-29 16:37:08 -0600
+Processing by GroupsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.2ms)[0m  [1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups"."id" = "memberships"."group_id" WHERE "memberships"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered groups/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 58ms (Views: 40.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-29 16:37:09 -0600
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-29 16:37:09 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-29 16:37:09 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-11-29 16:37:09 -0600
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-29 16:37:09 -0600
+
+
+Started GET "/expenses" for ::1 at 2015-11-29 16:37:09 -0600
+Processing by ExpensesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExpense Load (0.2ms)[0m  [1mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mGroup Load (0.1ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT 1[0m  [["id", 23]]
+  Rendered expenses/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 42ms (Views: 37.1ms | ActiveRecord: 1.0ms)

@@ -13,6 +13,7 @@ class MembershipsController < ApplicationController
   end
 
   def create
+    @group = Group.find(params[:group_id])
 
     @membership = Membership.new
     @membership.group_id = params[:group_id]
