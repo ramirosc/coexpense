@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'devise'
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git"
-#gem "chartkick"
+gem "chartkick"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

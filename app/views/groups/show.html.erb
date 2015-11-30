@@ -54,3 +54,21 @@
   </div>
 </div>
 
+<br />
+Total Group Expenses:
+<% h={} %>
+<% @group.expenses.group_by(&:category).map{|k,v|h[k] = v.map(&:value).sum} %>
+<%= pie_chart h %>
+
+<% Membership.where(:group_id => @group.id).each do |member| %>
+
+<%= User.find(member.user_id).name %>
+
+<% h={} %>
+<% @group.expenses.where(:user_id=> member.user_id).group_by(&:category).map{|k,v|h[k] = v.map(&:value).sum} %>
+<%= pie_chart h %>
+
+<% end %>
+
+
+
